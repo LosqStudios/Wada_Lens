@@ -474,12 +474,10 @@ Respond ONLY with a valid JSON object (no markdown, no backticks, no explanation
 The 4 Wada chips should be historically accurate pigment names from Wada's dictionary that relate meaningfully to the user's palette. Choose hex values that are close to but not identical to the user's colors — the Wada analogs should feel like the 1933 pigment-world equivalent.`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://wada-lens-proxy.nick-adb.workers.dev/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
