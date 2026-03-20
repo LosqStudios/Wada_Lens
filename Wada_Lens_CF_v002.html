@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trending Brand Colors 2025–2026</title>
+<style>
+  @font-face {
+    font-family: 'TheAcresSerif';
+    src: url('https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/TheAcresSerif.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'AkiraExpanded';
+    src: url('https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/AkiraExpanded.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BerkeleyMono';
+    src: url('https://raw.githubusercontent.com/LosqStudios/LS_Source/6301d0b738cb854921afc84c17df29d93db4d233/BerkeleyMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #080808; }
+  body { font-family: 'BerkeleyMono', monospace; background: #080808; min-height: 100vh; color: #fff; padding: 40px 28px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  .eyebrow { font-size: 10px; letter-spacing: 4px; color: #555; text-transform: uppercase; margin-bottom: 12px; font-family: 'BerkeleyMono', monospace; }
+  h1 { font-family: 'AkiraExpanded', sans-serif; font-size: 54px; font-weight: 400; letter-spacing: 0; line-height: 1.1; color: #f0f0f0; margin-bottom: 20px; }
+  h1 em { font-style: italic; color: #888; }
+  .divider { width: 48px; height: 2px; background: #333; margin-bottom: 44px; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 36px; }
+  .nav-btn { padding: 7px 16px; border-radius: 2px; border: 1px solid #222; background: transparent; color: #666; font-size: 11px; cursor: pointer; letter-spacing: 0.5px; transition: all 0.15s ease; font-family: 'BerkeleyMono', monospace; }
+  .nav-btn.active { border-color: #f0f0f0; background: #f0f0f0; color: #080808; font-weight: 700; }
+  .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .info-panel { background: #0f0f0f; border: 1px solid #1c1c1c; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+  .badge-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .badge { font-size: 10px; font-family: 'BerkeleyMono', monospace; letter-spacing: 2px; padding: 4px 10px; border-radius: 2px; }
+  .tag { font-size: 10px; color: #444; font-family: 'BerkeleyMono', monospace; letter-spacing: 1px; }
+  h2 { font-family: 'TheAcresSerif', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .description { font-size: 13px; color: #777; line-height: 1.8; font-family: 'BerkeleyMono', monospace; }
+  .gradient-label { font-size: 10px; color: #444; font-family: 'BerkeleyMono', monospace; letter-spacing: 2px; margin-top: 28px; margin-bottom: 10px; }
+  .gradient-bar { height: 8px; border-radius: 99px; }
+  .swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .swatch { border-radius: 4px; cursor: pointer; aspect-ratio: 1/1; position: relative; overflow: hidden; border: 2px solid transparent; transition: all 0.15s ease; }
+  .swatch:hover { transform: scale(1.03); }
+  .swatch-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; }
+  .swatch-hex { font-size: 10px; font-weight: 700; font-family: 'BerkeleyMono', monospace; }
+  .swatch-name { font-size: 10px; font-family: 'BerkeleyMono', monospace; margin-top: 1px; }
+  .insight { border: 1px solid #1c1c1c; border-radius: 4px; padding: 22px 26px; background: #0a0a0a; margin-bottom: 16px; }
+  .insight-label { font-size: 10px; font-family: 'BerkeleyMono', monospace; letter-spacing: 3px; color: #444; margin-bottom: 10px; }
+  .insight p { font-size: 13px; color: #aaa; line-height: 1.9; font-family: 'BerkeleyMono', monospace; }
+  .psychology { border: 1px solid #1c1c1c; border-radius: 4px; padding: 22px 26px; background: #0a0a0a; margin-bottom: 16px; }
+  .psychology-label { font-size: 10px; font-family: 'BerkeleyMono', monospace; letter-spacing: 3px; color: #444; margin-bottom: 14px; }
+  .psych-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .psych-list li { font-size: 13px; color: #aaa; line-height: 1.7; font-family: 'BerkeleyMono', monospace; padding-left: 18px; position: relative; }
+  .psych-list li::before { content: '—'; position: absolute; left: 0; color: #444; }
+  .wada { border: 1px solid #1c1c1c; border-radius: 4px; padding: 22px 26px; background: #0a0a0a; }
+  .wada-label { font-size: 10px; font-family: 'BerkeleyMono', monospace; letter-spacing: 3px; color: #444; margin-bottom: 14px; }
+  .wada-chips { display: flex; gap: 8px; margin-bottom: 16px; }
+  .wada-chip { height: 36px; flex: 1; border-radius: 3px; position: relative; cursor: default; }
+  .wada-chip-name { font-size: 9px; font-family: 'BerkeleyMono', monospace; color: #555; margin-top: 5px; text-align: center; line-height: 1.3; }
+  .wada-note { font-size: 13px; color: #aaa; line-height: 1.9; font-family: 'BerkeleyMono', monospace; }
+  footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #161616; display: flex; justify-content: space-between; }
+  footer span { font-size: 10px; color: #333; font-family: 'BerkeleyMono', monospace; letter-spacing: 2px; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #f0f0f0; color: #080808; font-family: 'BerkeleyMono', monospace; font-size: 12px; padding: 10px 20px; border-radius: 4px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; font-weight: 700; letter-spacing: 1px; }
+  .toast.show { opacity: 1; }
+  @media (max-width: 600px) { h1 { font-size: 32px; } .main-grid { grid-template-columns: 1fr; } }
+
+  /* ── Export ── */
+  .export-bar { display: flex; gap: 8px; margin-top: 20px; }
+  .export-btn { flex: 1; padding: 11px 8px; background: transparent; border: 1px solid #222; border-radius: 3px; color: #666; font-family: 'BerkeleyMono', monospace; font-size: 10px; letter-spacing: 2px; cursor: pointer; transition: all 0.15s; text-align: center; }
+  .export-btn:hover { border-color: #555; color: #ccc; }
+  .export-btn.primary { background: #f0f0f0; color: #080808; border-color: #f0f0f0; font-weight: 700; }
+  .export-btn.primary:hover { background: #fff; }
+  .export-btn.copied { border-color: #4ade80; color: #4ade80; }
+
+  /* ── Builder ── */
+  .builder-panel { display: none; }
+  .builder-panel.active { display: block; }
+  .catalog-view { display: block; }
+  .catalog-view.hidden { display: none; }
+  .builder-intro { font-size: 12px; color: #555; font-family: 'BerkeleyMono', monospace; letter-spacing: 1px; margin-bottom: 28px; line-height: 1.8; }
+  .builder-colors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+  .builder-color-slot { background: #0f0f0f; border: 1px solid #1c1c1c; border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .builder-swatch-preview { height: 72px; border-radius: 4px; cursor: pointer; transition: transform 0.15s; position: relative; border: 2px solid #222; }
+  .builder-swatch-preview:hover { transform: scale(1.02); }
+  .color-input-wrap { display: flex; align-items: center; gap: 8px; }
+  .color-picker { width: 28px; height: 28px; border: none; border-radius: 3px; cursor: pointer; padding: 0; background: none; flex-shrink: 0; }
+  .hex-input { background: #0a0a0a; border: 1px solid #222; border-radius: 3px; color: #ccc; font-family: 'BerkeleyMono', monospace; font-size: 12px; padding: 6px 10px; width: 100%; letter-spacing: 1px; }
+  .hex-input:focus { outline: none; border-color: #444; color: #fff; }
+  .name-input { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 3px; color: #666; font-family: 'BerkeleyMono', monospace; font-size: 11px; padding: 5px 10px; width: 100%; }
+  .name-input:focus { outline: none; border-color: #333; color: #aaa; }
+  .builder-palette-name-wrap { margin-bottom: 20px; }
+  .builder-palette-label { font-size: 10px; color: #444; font-family: 'BerkeleyMono', monospace; letter-spacing: 3px; margin-bottom: 8px; }
+  .palette-name-input { background: #0f0f0f; border: 1px solid #1c1c1c; border-radius: 4px; color: #ccc; font-family: 'TheAcresSerif', serif; font-size: 20px; padding: 12px 16px; width: 100%; }
+  .palette-name-input:focus { outline: none; border-color: #333; color: #fff; }
+  .apply-btn { width: 100%; padding: 16px; background: #f0f0f0; color: #080808; font-family: 'BerkeleyMono', monospace; font-size: 12px; letter-spacing: 3px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; transition: all 0.15s ease; }
+  .apply-btn:hover { background: #fff; }
+  .apply-btn:disabled { background: #1a1a1a; color: #444; cursor: not-allowed; }
+  .apply-btn.loading { background: #111; color: #555; }
+  .loading-dots::after { content: ''; animation: dots 1.2s steps(4, end) infinite; }
+  @keyframes dots { 0%,20%{content:'.'} 40%{content:'..'} 60%{content:'...'} 80%,100%{content:''} }
+  .builder-result { margin-top: 28px; display: none; }
+  .builder-result.show { display: block; }
+  .result-swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .gradient-preview-wrap { margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0;">
+    <div>
+      <div class="eyebrow">2025 – 2026 Brand Intelligence</div>
+      <h1>Trending<br><em>Color Palettes</em></h1>
+    </div>
+    <img src="data:image/png;base64,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" alt="Losq Studios" style="height:40px;width:auto;opacity:0.9;flex-shrink:0;margin-top:4px;" />
+  </div>
+  <div class="divider"></div>
+  <div class="nav" id="nav"></div>
+
+  <!-- CATALOG VIEW -->
+  <div class="catalog-view" id="catalog-view">
+  <div class="main-grid">
+    <div class="info-panel">
+      <div>
+        <div class="badge-row">
+          <span class="badge" id="badge"></span>
+          <span class="tag" id="tag"></span>
+        </div>
+        <h2 id="palette-name"></h2>
+        <p class="description" id="description"></p>
+      </div>
+      <div>
+        <div class="gradient-label">GRADIENT PREVIEW</div>
+        <div class="gradient-bar" id="gradient-bar"></div>
+      </div>
+    </div>
+    <div class="swatches" id="swatches"></div>
+  </div>
+  <div class="insight" id="insight">
+    <div class="insight-label">THIS TREND</div>
+    <p id="relation"></p>
+  </div>
+  <div class="psychology" id="psychology">
+    <div class="psychology-label">PSYCHOLOGICAL EFFECTS</div>
+    <ul class="psych-list" id="psych-list"></ul>
+  </div>
+  <div class="wada" id="wada">
+    <div class="wada-label">WADA LENS — A DICTIONARY OF COLOR COMBINATIONS</div>
+    <div class="wada-chips" id="wada-chips"></div>
+    <p class="wada-note" id="wada-note"></p>
+  </div>
+  <footer>
+    <span>SOURCES: PANTONE · VISTAPRINT · WIX · HEURITECH</span>
+    <span id="counter"></span>
+  </footer>
+  <div class="export-bar" id="catalog-export-bar">
+    <button class="export-btn" id="btn-copy-hex" onclick="exportCopyHex()">COPY HEX</button>
+    <button class="export-btn" id="btn-copy-css" onclick="exportCopyCss()">COPY CSS</button>
+    <button class="export-btn primary" onclick="exportDownloadPng()">DOWNLOAD PNG</button>
+  </div>
+  <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #111; text-align: center;">
+    <p style="font-size: 10px; color: #333; font-family: 'BerkeleyMono', monospace; line-height: 1.8;">
+      Wada Lens color references drawn from <em style="color:#444">A Dictionary of Color Combinations</em> by Sanzo Wada (和田三造).<br>
+      Originally published 1933. Reproduced by Seigensha Art Publishing, Kyoto, Japan.<br>
+      All Wada color names and combinations are the intellectual legacy of Sanzo Wada and Seigensha Art Publishing, Inc.
+    </p>
+  </div>
+  </div><!-- /catalog-view -->
+
+  <!-- BUILDER PANEL -->
+  <div class="builder-panel" id="builder-panel">
+    <div class="builder-intro">
+      PICK FOUR COLORS — NAME YOUR PALETTE — APPLY THE WADA LENS<br>
+      <span style="color:#333">Claude will analyze your combination through Sanzo Wada's 1933 color theory.</span>
+    </div>
+
+    <div class="builder-palette-name-wrap">
+      <div class="builder-palette-label">PALETTE NAME</div>
+      <input class="palette-name-input" id="custom-palette-name" type="text" placeholder="Name your palette..." maxlength="40" />
+    </div>
+
+    <div class="builder-colors" id="builder-colors">
+      <!-- slots injected by JS -->
+    </div>
+
+    <div class="gradient-preview-wrap">
+      <div class="gradient-label">GRADIENT PREVIEW</div>
+      <div class="gradient-bar" id="builder-gradient" style="background:#111; height:8px; border-radius:99px;"></div>
+    </div>
+
+    <button class="apply-btn" id="apply-btn" onclick="applyWadaLens()">APPLY WADA LENS</button>
+
+    <!-- Result area -->
+    <div class="builder-result" id="builder-result">
+      <div class="insight" id="br-insight" style="margin-bottom:16px">
+        <div class="insight-label">PALETTE READING</div>
+        <p id="br-relation" style="font-size:13px;color:#aaa;line-height:1.9;font-family:'BerkeleyMono',monospace;"></p>
+      </div>
+      <div class="psychology" id="br-psychology" style="margin-bottom:16px">
+        <div class="psychology-label">PSYCHOLOGICAL EFFECTS</div>
+        <ul class="psych-list" id="br-psych-list"></ul>
+      </div>
+      <div class="wada" id="br-wada">
+        <div class="wada-label">WADA LENS — A DICTIONARY OF COLOR COMBINATIONS</div>
+        <div class="wada-chips" id="br-wada-chips"></div>
+        <p class="wada-note" id="br-wada-note"></p>
+      </div>
+    </div>
+
+    <div class="export-bar" id="builder-export-bar" style="display:none;">
+      <button class="export-btn" id="btn-builder-copy-hex" onclick="builderExportCopyHex()">COPY HEX</button>
+      <button class="export-btn" id="btn-builder-copy-css" onclick="builderExportCopyCss()">COPY CSS</button>
+      <button class="export-btn primary" onclick="builderExportDownloadPng()">DOWNLOAD PNG</button>
+    </div>
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #111; text-align: center;">
+      <p style="font-size: 10px; color: #333; font-family: 'BerkeleyMono', monospace; line-height: 1.8;">
+        Wada Lens color references drawn from <em style="color:#444">A Dictionary of Color Combinations</em> by Sanzo Wada (和田三造).<br>
+        Originally published 1933. Reproduced by Seigensha Art Publishing, Kyoto, Japan.
+      </p>
+    </div>
+  </div><!-- /builder-panel -->
+</div>
+<div class="toast" id="toast">HEX COPIED ✓</div>
+<script>
+const LOGO_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABrCAYAAACBtCeBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAQE0lEQVR4nO1dCZAV1RU982eGgWFkEZBNZRNRREER3AKiETeIC6JSRkWx3HfUJCpqCEpSRom4x0RjNBpFDbgFcEEjigpRQFBRREVFQVZlkWXgpi512uq03a9fL////o6n6vGH3/1fv+7br99dzr1dJiK9AQwCMARAOwALAawHkENyCIAyAK0A1AB4EsBTAB4B8F3EvtoD2JNtJwDbAWgKoBbA1wAWA3gHwEwAcwGsQgmiTESv2Va0AfAbABfm4ThvARgBYDKFZItdAZwAYCCAbgDq8/vPAPwXwBf8risF1ZDblwGYBuCfACaVlHBUIJ42UEQ2S3oY73OMsLaziIzz6etJEekS8JtyETlNRD7z/GapiFwmIg1ijKPgLWjD8JSEMVVEKiMMqEpEbhCRLT59nW/Zh174ST6/XyAih5WqQOqJyJwUBHJchME0E5FZAf1cGvHEdLZMDuhrRCkKRNs1CYXxkYg0shzI7iIyP6Cf+2KenD721gT0ObbYFz6omTQpXTST4GMA31rs1xjABGpOXqi2dyPi4UMAtwRsuwjAlcggTAJRTSUJvrTc708AOgZsexTAvARjuIMqsR9GAzgSJSSQtQA2JOjbZnaoSnu6YftjSIavALxk2H4dgHKUiEA2s8XFFot9Ljds+wLAdCTHK4ZtahRfgBIRSBlbXIT99mcAehm2zwewFMmhlrsJJyJDSMM9EheHhGyfk9JxPg8R7H6cKajrAtnX4vmfBlaymbAH6rhA1P/UIWSfFSkday2bCer8rNMCaQKgecg+61M8nnqETWiEOi6QemxZQTnquEBWWbjEywt4nutQxwWy1sKSb5zSsSoBVIXsk9QrUfIC2czongktUjpWI4s1Qv1uqOtq74sh2zundBzVoFobtn8K4FVkBMUUyFSD40/RJaV1ZGc+toLwvIWdUicEsgjA30OMtb1SOM7+Iar1WGQIxRQIGOvQuEUQ+ifsvzKkjzEA3kWGUGyBqHZzpmH7yRYakglHA+gesE2VilHIGIotEMc9fq6BBnRagr6V1hSkVQ1O2RvwoxGI4m6DUG4AsGOMPq8B0NPn+wUADqZ7P3PIikAcoRzqYzA2A/BERAfgqQB+5/P9BApJ2ZmZRJYE4qigylC8y0M13RvAGwD6IdyLPMpHe9O4/EkAjgXwDTKMCmQPKwGcRw3sYnKOW5F3/BLZMA9SO1rOc1Debx8Aw8ghBimrrwG4lwKKQmHNBLfXi10AvA2gQcy+b+UFTYoazoyetE360K2iJIrVNB5bMmQ8kwKbQ2VhNkoMWZwhXqwB8AwbeOHbcNZUk0yxgqQIFVBJoxQE4oXQytdWiuhJ35pzg2V6Ua8L+DUjpvixCaSS9kRmwq8WOIPOznE/RoEMows/Lve3GBhJStLGOAKRDKuKI2hIKs4G8I+Mxej98CsAbck3RhyBZI2I4IamuLlxEE82q9iDnoM1YcEwk0C2ybAWdrgr4rgEQF8AnyCbaETXj3qtx4fF700CUV0/q1jFNWQ8GfTqMMwi1FZ62pX7Eha2Ns6ApMGhfOMzpnNn2d540vUoVabN62E/CpohSvM8Lt3x1RnsAOA2AG961rW5IdFR4wy5kW7vJNiEuoNqAPvwMXqMy8HphgoIcQQyltG0pGhOJ2CW16IoEDoya0ji255UpVZMaQgjj0+09fZq59sC+AVjCaVk+ZYKFjLOo2pv6AwZwEymNgwQLSWzMEn21BYGixxvbKlA+Flm2L6F12eTT8qfM4uqWYelG2fOCzbCcM+Q9QkTPH+CPxq61HJTrqNVgKouoClTslvQA1vDO7yWauoKsittc+4ToyLGCbQlPac9/27qOqFKTvdNNN6W8BH4OeMXn/AE1/IEg7J8Kxm6fT+FAgZutGQ+4SH87Mj103QdNnPMC+j2mMIx5YV+ajNDGvPi9GfmrJ6UH2qZZ7GFboKg0O9aCuoLGnfLmE+4ikJ14uP6/D2C5ZWSQtfJoSwU4JRwckMFPwPARxxHc2pQ+zOW78VK1v36a+pEbUPdjR1F5BYRWelTK0TLN00XkStFpB/3bSEiTXRNEpFtRaS1iOwtIqeIyL2GWiYm7J+wdogWv5kR0HetiNwjIj0Nv9dKRgeIyATu74dXeA3yWnzmGkPNrHkism/MAw4QkZcjCOSAmMfpLiKvG/p9W0R2i9injuVrQ5/Pisj2aQukvog8bjjoS5wBSe+EE1m/Kh8CuTSkz+d5nnHG3VZE3jD0vUpEhqYpEJWyCT1SEIa70NiDKQqkUkSeCOlPZ011wnG3FJFFIce5OQ2B/DHkINNSFIa7XZyCQJqKyIsh49e1sENKYz5SwvF4xGp6/yeQXUVkfcgBHsiTQLQNSyCQHEsJhmF4ymO+1eKY90ftNxchDyOf1Q7uIz0mDu6nOm7CB64YfFoYa2EsDg0gfQeDktHHkQ2OzuMsAcv5RZkhV1iOO+3Z4bQ7075u+k8nEfnGsuNNIjI6hYUxqFWLyExLgXQWkdUWY14hIu3zNN7eBvvEjfm006weWa0iuNwrWKtwPoNYvUIyXKNiHUvv2eAPAYEgLyYz9TkfmAXgPYv9drJNn8uRXRIV6qq/gtWjP2QFaU0h6BHgmoiCxywqyR0VIZ6u6df5wkaSGGwwlD7AUIEkiXs4uRlDSACbyVSAJ7hIHxKStB+EW/jplBb34izLfjan7Jz0g5VbneeiIV4z+JzOJ3R9msICxntZ6uaNRWSjiBzvs02NU1vML0CJ8fZcp2ywRERaha0hy/JcDacRmYWjWJRfk4CuDam3+A0fhw0DSHK2mBPjLQxR8WmENWo7pmoHIkcdvZDJ891IOp7O6T7IsBhXeb4royvdFoUqKqPxHlv83LTRMQzTiDnEQR+uNzOYWuDGOB9iWceI5TZsizknRRTB72xijDobHihyEa+9SbO82aVkLPAp4dSdBAJbaCCsEIhSH7ITm1EgGim7CsXHcAAvG1TxoGhlsQUSJZxbY3JD5Ty+GbUnio2+TPD3S4WIyhkrVOmMqE+XQFPA+yw7iTngxcbBAaWbAnPzAlAoTlhY1VMvAiuy5gLKUlydAW7uEHKa3MhqvkpUgQQWZgta7UeTdaGpYsXESI+1HpVEVijSWS6tmZsL4aOeQv/LPTR+Cs2q24VUIAdWdMwiJLVWpLW22Qx4HhMrO3PBHUEuUqEWzMGuv6OS09L0RJtQlZb2VxHxOfkq22gmpvQhmaw7ScVt8mTZl9NRGPV9hMqqLASi1hj+2iSQA1k1J8rCJGQdPsTmDKoHU7l60aJWqzQptmdbSIZhbYQbqVC5KUpHtcVSU1mQCrqEF5DamQTqEPwPmzONe9AF358ZRkHu9DBDqoZ/v0t+sG1N36iGZFzoDWOLT0wCyfGR4PeGtKTYwDSuG1heaQ/GTAKrGBjWAWctUM/tc7BHnNKAceDH/w2CMcKYI3NdtZl8Yz7f97R7xHdLbfLYRFEcoV0L8OaDZhEFPylMIEstXj+UJj7k40vfGG2D1Z46WP+OUJisKyOa+USXCAKZFxbyzTE94DBLwkCaOM8ysLOYzW1UqcveBg3pSc4novR/d5jfK8fnck3C+rhxsNLSEzDfZ925I0L1BlOp8TRwZITF3FRa/XuB1LpeR1roWWKTu/18QPxBlQVbR2VlHrUrTYm2wRgbO8ptqXdOqWhlFIS5QlYB+FfAtr+xdEUYnEysfOB4y5CAZlvdbtOh13XyW1rfhULYi8Hu8awffm8KVQM1DOr6SRs5cq1swsi2tKUfCKSC5OW0XjcUBhPzZBGAm0J+/xFJEhssnvNpz5KzDYX+HSxnCME+chmQpKNZRjV55jNVMz0uCIMi9HWsBcd2Nl98n8bYm4vIxyHHW80cy0h9BwlEMcuWIByzXWc4mUtj9NdHRL4NuUhjUhr7UyHHmRUjhzFUIIovefelLYxzDMe8JEG/XUTkrZCLdX7CsWtmsgkPi0hV3P7DBOJA04L3SUEQOuPuMtA++6ZwjHoicr2IbDCcz6gY/VaF5ERqZu+hScdvKxAHE5n73SzCQbQ4wZ68SH4c2DUiMjIPa1YXEXnOcC7TItxkms49N6CfD0TkVJ5n4nFrJ1PIvf2OWstKOuQa0vHY2kcbc95DOJtu+8VM79pI+k5jxiI60bWgjEM31Fk4hf6sySm+GdoPTmGx4wMCVtPp8HuHlNC1tC3aMaajfr49Pb9R982zrOQwMU1CiArkMbohxtACFrIHy1keYwc60DryAnehsRWl4txqug5mkUQ9qQgvVWnOcPBABtH8yGq1bFUBaRrv0hi9P19v6FGB1IsRo6jizGnLu6mKM6qRy8Jew37X8OKrXZGV0kM5RjPbMWH0kgC30Qq+s+Q5MvdnGQrmpIFz61p5phreRLsxYLYf2za8eb5ieOB1+tmmxYjjJ7lJnk6TeLYdH3FZe79TMzIyBzA+ojO7wsVaH8d1YC7XkGKRznVsXcMEUo930jwLR+BITnFlPXrRnSdayDejNWCO+IU+NJ1HAZxP10ZWsO9WDoBFhYUZrJYQtu9ZVAP9yleMzmOuOHyalnX6iuPRuiQPicgLrgpHG3heY0XkoAKOK6hpmt+nIvK080UNdWmvfTGeJ7CDx4/TgjWxvBd/AvVyr0E1KCBXfCDzzb3ftxGRo2KeXAeXX2uwZ5vmON4tIks9tsR7LBijx9wlRZ+XbdMSHIrhzhencZBalKyra8dHeae5yxlNZFGy21hJwd1xXxp6t3uciIt8/EgHishy+n2qPJb2GCZIPhKjHNQknpzJl1SfCaXv+Bh6WzgmrdJwEpNM45ZzMjWdBGfyBnbQE7wrlonIL0VknOdOvkpEXvNMrSXsaCo/nW39eacN4j7uO/9V9u38vzMrNhzGAe3n2nY1HycXiMgdES1gJ6P4Isv9y3jefoJxUEvP7mSO5zIROZnn241Fy2oM46zPfXqzTtjlavuJyGKfynRbtY1XqOZd77K6HVR4Usg205Lf4HplnYOmpBM9w1SC3VyLeK1HKahhX2u5baOHVTKAHGK14qPo5cMYELrTcn9xsS+Po3HsZZCUkybbgW8idcOht67k5zpem01UiBrwurS2oLX+2bngnUjeeoDkgXbMzHUu3BbP4JrwM+fZVo//34vCUnqqg5yHnO2Q36p5Mm4SdUcAj3N/zTk8J0Jqcy+q3VHzNUAmi94Ap7N8iE3Bg3Kq1Unr5OukeHjrX9RIptLZdoRnul1Lh2BL13c3cQqrVvB71/dNWLZvNgvauPtRl/ibrv9X8Vm/mFPfve+xIvI+HxG7RnwuL+DjIOnzvTEf1+sk/1jvXrfdntETAyq1Deane7Cn8kJ63eVaHPMYn356U6Nyf7eTiJwRUNmhX8SIodNuFJEhKQjEaa0omIV5FMgJ7mPWNddJXDTgywouiUD7CcNyOjs16/h7/CSQ6Nid7wg5PGZ5Kl1f/0ICxw/CDj8JBImgCpGWLNdZo2EJJc6poqLKkrrvVclRBUP50+q617ckaAtM2PkfMY15LNBkw9EAAAAASUVORK5CYII=";
+const palettes = [
+  { name: "Quiet Luxury", tag: "Neutrals & Minimalism", trend: "↑ Strong", trendColor: "#4ade80",
+    description: "Pantone's Cloud Dancer leads a wave of grounded, minimalist tones. Dominant in wellness, tech, and beauty branding.",
+    colors: [{ name: "Cloud Dancer", hex: "#F5F0E8" }, { name: "Mocha Mousse", hex: "#A07855" }, { name: "Universal Khaki", hex: "#B5A48A" }, { name: "Warm Mahogany", hex: "#7B3F2D" }],
+    relation: "Quiet Luxury is defined by restraint. Soft whites and warm creams carry the weight, supported by barely-there neutrals. No saturation, no noise — just the confidence of a brand that doesn't need to shout. This palette speaks to an audience that already knows.",
+    psychology: ["Signals understated confidence and self-assurance — the consumer doesn't need to be loud to feel premium", "Warm neutrals trigger feelings of safety and familiarity, lowering purchase anxiety and increasing trust", "Muted tones reduce cognitive load, keeping attention on product and message rather than color itself"],
+    wada: { chips: [{name:"Unbleached", hex:"#F0E6D0"},{name:"Buff", hex:"#C8A882"},{name:"Sepia", hex:"#8B5E3C"},{name:"Vandyke Brown", hex:"#5C3317"}], note: "Wada called this territory 'composed restraint.' His Plate 24 pairs Unbleached with Vandyke Brown — tones drawn from aged paper and tanned leather. He noted that palettes built entirely from pigment-like naturals feel 'already worn in by time,' giving them authority no bright color can manufacture." } },
+  { name: "Clubroom Contrast", tag: "Luxury & Drama", trend: "↑ Strong", trendColor: "#fbbf24",
+    description: "Deep inky backdrops with metallic gold accents. Instant premium signal for finance, spirits, fashion, and luxury brands.",
+    colors: [{ name: "Inky Black", hex: "#141414" }, { name: "Deep Navy", hex: "#0D1B2A" }, { name: "Metallic Gold", hex: "#C9A84C" }, { name: "Warm Cream", hex: "#F5EDD6" }],
+    relation: "Clubroom Contrast thrives on the tension between void black and metallic warmth. The deep backdrop absorbs everything — only gold breaks the silence. This is a palette for brands that want to feel like a members-only experience: exclusive, considered, and unmistakably premium.",
+    psychology: ["Black backgrounds signal exclusivity and scarcity — the psychological effect of velvet ropes applied to color", "Gold activates deep cultural associations with wealth, success, and reward across nearly every global market", "High contrast ratios between dark and light create visual hierarchy that commands attention and signals authority"],
+    wada: { chips: [{name:"Lamp Black", hex:"#2B2B2C"},{name:"Indigo", hex:"#1B1F5F"},{name:"Old Gold", hex:"#CFB53B"},{name:"Ivory", hex:"#FFFFF0"}], note: "Wada's Plate 7 pairs Lamp Black and Old Gold — a combination he traced to Japanese lacquerware and Noh theatre costuming. He considered this the most 'complete' contrast available to a designer: total darkness against refined warmth. A pairing that has signaled ceremony and importance across Asian and European cultures for over four centuries." } },
+  { name: "Earth & Nature", tag: "Organic & Grounded", trend: "↑ Rising", trendColor: "#86efac",
+    description: "Earthy, organic tones tied to sustainability movements. Trending in food, fashion, packaging, and home goods.",
+    colors: [{ name: "Eucalyptus", hex: "#7D9E8C" }, { name: "Hidden Jade", hex: "#4A7C6F" }, { name: "Cinnamon", hex: "#C4622D" }, { name: "Chestnut", hex: "#7B3D2A" }],
+    relation: "Earth & Nature returns color to its source material — soil, bark, sage, and stone. These tones ask nothing of the viewer. They simply exist, the way organic things do. Brands in wellness, food, and sustainability are claiming this territory and building deep emotional trust with it.",
+    psychology: ["Greens and browns activate biophilic responses — our brains are hardwired to associate these tones with safety, nourishment, and restoration", "Earth tones signal authenticity and honesty, making consumers more likely to trust product claims and brand values", "Muted organic hues reduce visual stress and create a sense of calm deliberation, encouraging longer brand engagement"],
+    wada: { chips: [{name:"Reseda", hex:"#748B6F"},{name:"Sage", hex:"#87AE73"},{name:"Sienna", hex:"#882D17"},{name:"Ochre", hex:"#CC7722"}], note: "Wada's most referenced nature palette appears in Plate 38 — Reseda, Sage, Ochre, and Sienna. These are the tones of a forest floor after rain. He wrote that such combinations require no justification because they existed before human design — they carry the weight of the natural world as their argument." } },
+  { name: "Signal Teal", tag: "2026 Breakout Color", trend: "↑ Breakout", trendColor: "#2dd4bf",
+    description: "The projected breakout of 2026 — hopeful, nature-forward, sitting between blue and green. Signals resilience and innovation.",
+    colors: [{ name: "Signal Teal", hex: "#2A9D8F" }, { name: "Deep Teal", hex: "#1A6B62" }, { name: "Teal Mist", hex: "#A8D5CF" }, { name: "Off White", hex: "#F4F1EC" }],
+    relation: "Signal Teal is one of the most ownable colors in 2026 — rare enough to be distinctive, familiar enough to feel trustworthy. It sits at the intersection of blue's authority and green's growth, making it ideal for brands that want to feel both established and forward-moving.",
+    psychology: ["Teal combines the trust of blue with the growth associations of green, creating a dual signal of reliability and forward momentum", "Its rarity in mainstream branding makes it feel distinctive and ownable — consumers notice it more than saturated primaries", "Blue-green tones lower heart rate and cortisol levels, making audiences more receptive and open to brand messaging"],
+    wada: { chips: [{name:"Viridian", hex:"#40826D"},{name:"Turquoise", hex:"#30D5C8"},{name:"Celadon", hex:"#ACE1AF"},{name:"Linen", hex:"#FAF0E6"}], note: "Wada had deep affection for blue-greens, which appear across multiple plates in his Dictionary. He associated Viridian and Celadon with glazed ceramic and weathered copper — surfaces that require time to become beautiful. He wrote: 'These colors cannot be rushed. They are the tones of patient things.'" } },
+  { name: "Mermaidcore", tag: "Iridescent & Fantastical", trend: "→ Emerging", trendColor: "#a78bfa",
+    description: "Shimmering, dreamy gradients with fantasy energy. Big in beauty, fashion, wellness, and premium lifestyle branding.",
+    colors: [{ name: "Pearl Teal", hex: "#6ECFCF" }, { name: "Iridescent Lilac", hex: "#C3A6D8" }, { name: "Sea Glass", hex: "#A8D8C8" }, { name: "Aurora Pink", hex: "#F2A7C3" }],
+    relation: "Mermaidcore doesn't pick a single color — it shifts through them. The palette lives in the space between aqua and violet, pearl and seafoam, always in motion. Brands using this trend feel mythological, aspirational, and effortlessly otherworldly.",
+    psychology: ["Iridescent and shifting colors trigger a sense of wonder and escapism, allowing consumers to project fantasy and aspiration onto the brand", "Soft aquas and lilacs activate feelings of tranquility and emotional safety, particularly effective for beauty and wellness", "The unpredictability of shifting tones creates visual curiosity and extended dwell time — audiences linger longer"],
+    wada: { chips: [{name:"Pale Bladderwort", hex:"#C8E6C9"},{name:"Wisteria", hex:"#C9A0DC"},{name:"Aquamarine", hex:"#7FFFD4"},{name:"Blush", hex:"#F4C2C2"}], note: "Wada's Plate 112 pairs Pale Bladderwort with Wisteria — tones he associated with early morning mist over still water. He noted that palettes built from flower and mineral names carry a 'remembered beauty' — they feel familiar without being identifiable, which is precisely what makes them feel magical." } },
+  { name: "Retro-Modern", tag: "Nostalgia · Music · Fashion", trend: "↑ Rising", trendColor: "#f59e0b",
+    description: "Burnt orange, deep mustard, dusty cyan, and vintage purple — the palette of the 70s and 90s, reborn with modern restraint. Dominant in music branding, fashion labels, and creative editorial projects. Brands like Supreme, Palace, and independent record labels are all living here. Nostalgic but never dated.",
+    colors: [{ name: "Burnt Orange", hex: "#C84B11" }, { name: "Deep Mustard", hex: "#C9A227" }, { name: "Dusty Cyan", hex: "#5B9B9B" }, { name: "Vintage Purple", hex: "#6B3FA0" }],
+    relation: "Retro-Modern pulls from two eras simultaneously — the warmth of the 70s and the irreverence of the 90s — and restrains both into something that feels current. Burnt orange and dusty cyan don't clash here, they collaborate. The palette signals cultural fluency: this brand knows where it came from and exactly where it's going.",
+    psychology: ["Nostalgic color palettes activate autobiographical memory — they don't just look familiar, they trigger specific emotional recollections that attach to the brand", "The tension between warm burnt tones and cool dusty cyan creates visual balance that feels considered and artful, signaling creative intelligence", "Vintage-influenced palettes communicate longevity and cultural credibility — the brand feels like it has always existed and always will"],
+    wada: { chips: [{name:"Rust", hex:"#B7410E"},{name:"Goldenrod", hex:"#DAA520"},{name:"Cadet Blue", hex:"#5F9EA0"},{name:"Byzantium", hex:"#702963"}], note: "Wada's Plate 55 pairs Rust and Goldenrod — tones he sourced from autumn foliage and aged bronze. He paired them against a cool Cadet Blue as the visual counterweight, creating what he called 'the palette of memory' — colors that feel simultaneously distant and immediate. He noted: 'These combinations do not try to be new. They try to be true.'" } },
+  { name: "Dopamine Brights", tag: "Bold & Energizing", trend: "↑ Peak", trendColor: "#facc15",
+    description: "Loud, energizing colors built to cut through digital noise. Dominant in youth, food & beverage, and lifestyle brands.",
+    colors: [{ name: "Banana Yellow", hex: "#F5D76E" }, { name: "Sunny Yellow", hex: "#FFB800" }, { name: "Cherry Red", hex: "#CC2936" }, { name: "Electric Orange", hex: "#F4511E" }],
+    relation: "Dopamine Brights exist to be felt before they are understood. Saturated, unapologetic, and deliberately loud — this palette turns the volume all the way up. Brands using it in 2026 are optimizing for immediate emotional response: joy, energy, and the irresistible pull to stop scrolling.",
+    psychology: ["Triggers a literal dopamine response — bright saturated colors stimulate reward pathways, creating instant positive association", "High-chroma yellows and oranges elevate mood and perceived energy, making audiences feel more optimistic about the brand", "Creates urgency and excitement that shortens decision-making time — ideal for impulse-driven purchases and CTAs"],
+    wada: { chips: [{name:"Canary", hex:"#F7DC6F"},{name:"Gamboge", hex:"#E49B0F"},{name:"Vermilion", hex:"#D9381E"},{name:"Scarlet", hex:"#FF2400"}], note: "Wada explored fire-derived palettes in Plate 61, combining Gamboge, Vermilion, and Canary — all pigments historically made from intense natural sources. He described such combinations as 'the palette of festivals and lanterns,' noting they compress multiple emotions into a single glance. What modern branding calls dopamine, Wada called joy." } },
+  { name: "Thermal Glow", tag: "Ad Agency · Cinematic Neon", trend: "↑ Breakout", trendColor: "#ff6b35",
+    description: "The hottest color direction coming out of top ad agencies in 2026. Infrared-inspired gradients stack neon layers — electric magenta, thermal orange, acid yellow — over deep black backdrops. Cinematic, unmissable, and emotionally charged. Used heavily in tech, entertainment, and music campaigns.",
+    colors: [{ name: "Void Black", hex: "#0A0008" }, { name: "Thermal Magenta", hex: "#FF006E" }, { name: "Infrared Orange", hex: "#FF4500" }, { name: "Acid Yellow", hex: "#FFE600" }],
+    relation: "Thermal Glow maps the visible spectrum of heat — from deep magenta through infrared orange to blinding yellow. It feels urgent and cinematic, like a brand captured mid-explosion. Top agencies are using this palette to signal intensity, speed, and ambition in product launches and campaign hero imagery.",
+    psychology: ["Infrared-inspired gradients trigger primal heat and danger responses — the brain interprets these tones as high-intensity and important", "The shift from magenta to yellow mimics the visible spectrum of fire, activating deep survival-level attention mechanisms", "Cinematic color temperatures create an aspirational 'movie poster' effect — consumers associate the brand with epic, larger-than-life narratives"],
+    wada: { chips: [{name:"Ebony", hex:"#0C0B0B"},{name:"Carmine", hex:"#960018"},{name:"Flame", hex:"#E25822"},{name:"Aureolin", hex:"#FDEE00"}], note: "Wada's Plate 72 moves from deep Ebony through Carmine and Flame to Aureolin — a sequence he described as 'the arc of burning.' He studied fire extensively as a painter and noted that its color progression from base to tip follows a logic the human eye finds impossible to ignore. Thermal Glow is, in essence, Wada's fire palette reborn in neon." } },
+  { name: "Neon Shock", tag: "Ad Agency · Refined Neon", trend: "↑ Strong", trendColor: "#00ff88",
+    description: "Neon is back in 2026 but more disciplined than before. Top agencies are using single neon accents — electric green, hot pink, or cyan — sparingly against dark or neutral bases for maximum punch. One neon, used boldly, beats a rainbow every time. Dominant in SaaS, fintech, and tech-forward UI campaigns.",
+    colors: [{ name: "Deep Black", hex: "#080808" }, { name: "Electric Green", hex: "#00FF88" }, { name: "Hot Pink", hex: "#FF2D78" }, { name: "Cyber Cyan", hex: "#00E5FF" }],
+    relation: "Neon Shock is an exercise in restraint as much as boldness. One electric accent on absolute black — nothing more. The power comes from isolation. When a brand commits fully to this palette, it creates a visual signature so stark and immediate that it becomes genuinely impossible to ignore.",
+    psychology: ["Isolated neon on black creates a figure-ground contrast so extreme it bypasses conscious filtering — the eye is physically compelled to look", "Electric greens and cyans are associated with digital interfaces and data, signaling cutting-edge capability and technical authority", "Restraint in neon usage creates perceived scarcity of energy — what is rare feels more valuable, making the brand feel exclusive and powerful"],
+    wada: { chips: [{name:"Jet Black", hex:"#080808"},{name:"Emerald", hex:"#009473"},{name:"Rose", hex:"#FF0080"},{name:"Ice Blue", hex:"#D6ECEF"}], note: "Wada's principle of 'one voice in silence' appears throughout his Dictionary — a single vivid tone against a field of near-nothing. His Plate 18 places a single Emerald against Jet Black with a whisper of Ice Blue. He wrote: 'The color that stands alone speaks the loudest. Surround it with noise and it becomes ordinary. Give it silence and it becomes unforgettable.'" } },
+  { name: "Digital Fusion", tag: "AI · Iridescence · Hyperreal", trend: "↑ Breakout", trendColor: "#6366f1",
+    description: "AI-generated aesthetics and OLED screen technology are pushing brand color into impossible territory — iridescent purples, hyper-digital blues, neo-mint, and chrome silver. Computational, non-natural, and deliberately synthetic. Leading the visual language of AI platforms, fintech launches, and next-gen product reveals.",
+    colors: [{ name: "Neo Mint", hex: "#A8F5C8" }, { name: "Hyper Violet", hex: "#5B21B6" }, { name: "Chrome Silver", hex: "#CBD5E1" }, { name: "OLED Blue", hex: "#0EA5E9" }],
+    relation: "Digital Fusion is the palette of things that don't exist yet. Iridescent chrome, hyperreal violet, neo-mint that no plant has ever grown — these are colors invented by screens, for screens. Brands living here signal that they are operating at the frontier of what's possible, aesthetically and technologically.",
+    psychology: ["Iridescent and synthetic colors signal novelty and technological advancement — the brain registers them as genuinely new, which triggers heightened attention and curiosity", "Cool violet and blue tones activate associations with intelligence, depth, and complexity — audiences feel they are engaging with something sophisticated", "The 'impossibility' of hyperreal colors creates a dreamlike cognitive state where critical filters lower and brand messages land more deeply"],
+    wada: { chips: [{name:"Pale Aqua", hex:"#B0E0E6"},{name:"Iris", hex:"#5A4FCF"},{name:"Platinum", hex:"#E5E4E2"},{name:"Cornflower", hex:"#6495ED"}], note: "Wada had no digital reference point, yet his Plate 101 — Pale Aqua, Iris, and Platinum — anticipates the Digital Fusion palette with uncanny precision. He drew these tones from the surface of abalone shells and the interior of certain minerals, noting: 'These are the colors of things that were never meant to be seen from the outside.' A description that could have been written for the interior of an OLED screen." } },
+  { name: "Gaming", tag: "Neon & Immersive", trend: "↑ Peak", trendColor: "#818cf8",
+    description: "Gaming brands in 2026 are dominated by deep void blacks with neon electric accents — cyan, violet, and toxic green. High contrast, glow effects, and RGB energy define the visual language of platforms like Steam, Twitch, and game UI.",
+    colors: [{ name: "Void Black", hex: "#060612" }, { name: "Electric Cyan", hex: "#00F5FF" }, { name: "Neon Violet", hex: "#8B5CF6" }, { name: "Toxic Green", hex: "#39FF14" }],
+    relation: "Gaming's visual language in 2026 is absolute: void black ground, electric neon accents, nothing in between. Cyan, violet, toxic green — each accent is chosen for maximum contrast and zero ambiguity. This palette doesn't suggest energy, it transmits it directly into the viewer's nervous system.",
+    psychology: ["Neon on void black mimics the experience of screens in dark rooms — it triggers flow state associations and deep focus", "Violet and cyan activate the brain's reward centers similarly to the visual feedback loops embedded in game design", "High-energy color combinations raise arousal levels, increasing competitive instinct and the desire to engage and win"],
+    wada: { chips: [{name:"Midnight", hex:"#0A0A2E"},{name:"Cyan", hex:"#00B7C3"},{name:"Violet", hex:"#7F00FF"},{name:"Malachite", hex:"#0BDA51"}], note: "Wada had no vocabulary for neon — it didn't exist in 1933. But his Plate 89 pairs deep Midnight blue with Violet and Malachite green, which he associated with the plumage of peacocks seen under lamplight. He wrote that such combinations feel 'alive in darkness' — an observation that anticipates the entire visual grammar of gaming culture by nearly a century." } },
+  { name: "Playful Tech", tag: "Friendly & Approachable", trend: "↑ Rising", trendColor: "#fb923c",
+    description: "A new wave of consumer tech brands — think Notion, Linear, Duolingo — are ditching cold corporate blues for warm, bouncy palettes with rounded energy. Soft cream backgrounds, punchy fruit tones, and unexpected color combos signal intelligence without intimidation.",
+    colors: [{ name: "Cream Base", hex: "#FFFBF0" }, { name: "Punchy Peach", hex: "#FF6B6B" }, { name: "Electric Lavender", hex: "#845EC2" }, { name: "Zesty Lime", hex: "#B5E550" }],
+    relation: "Playful Tech is what happens when smart brands decide to stop being intimidating. Soft cream backgrounds, bouncy fruit tones, unexpected pairings — this palette says 'we're serious about what we do, but we won't make you feel stupid for not knowing it already.' Notion, Duolingo, and Linear all live here.",
+    psychology: ["Warm cream backgrounds lower perceived complexity, making technology feel accessible and non-threatening to mainstream users", "Unexpected color pairings like lavender and lime signal creativity and lateral thinking — the brand is smart but not stuffy", "Fruit-toned accents trigger positive sensory associations with vitality, fun, and reward — they feel inherently optimistic"],
+    wada: { chips: [{name:"Cream", hex:"#FFFDD0"},{name:"Salmon", hex:"#FA8072"},{name:"Lavender", hex:"#967BB6"},{name:"Pistachio", hex:"#93C572"}], note: "Wada's Plate 44 is among his most joyful — Cream, Salmon, and Lavender arranged like sweets in a confectioner's window. He drew these combinations from the palette of Japanese spring festivals, where colors were deliberately chosen to feel abundant and welcoming. He noted: 'These tones do not demand attention. They invite it.'" } },
+  { name: "Graphic Design Studios", tag: "Editorial & Expressive", trend: "↑ Dominant", trendColor: "#f472b6",
+    description: "Top design studios in 2026 are pairing stark blacks and whites with a single electric accent — hot coral, acid lime, or vivid violet. Brutalist layouts, bold type, and maximum contrast define the aesthetic.",
+    colors: [{ name: "Studio Black", hex: "#0A0A0A" }, { name: "Acid Lime", hex: "#C8F135" }, { name: "Hot Coral", hex: "#FF4D4D" }, { name: "Pure White", hex: "#F8F8F8" }],
+    relation: "Graphic Design Studios in 2026 are building palettes around Studio Black — a true, warm, near-absolute black — paired with one precision accent. Hot coral, cobalt, or acid yellow. The rest is white space and confidence. This palette signals craft: the brand knows exactly which color to reach for and exactly when.",
+    psychology: ["Maximum contrast between black and white creates visual tension that signals creative confidence and fearlessness", "Single electric accents on neutral grounds create a 'pop' that the brain registers as novel — novelty drives memory encoding", "Brutalist color restraint communicates that the brand is too sophisticated to rely on visual tricks — the idea does the work"],
+    wada: { chips: [{name:"Jet", hex:"#0A0A0A"},{name:"Chartreuse", hex:"#DFFF00"},{name:"Geranium", hex:"#E8272A"},{name:"Snow", hex:"#FFFAFA"}], note: "Wada's Plate 3 is one of his most startling — Jet black against a single Geranium red on white. He called this 'the printer's palette,' noting that the earliest Japanese woodblock masters understood instinctively that one color against nothing is more powerful than many colors competing. What design studios rediscover every decade, Wada documented in 1933." } },
+  { name: "Media & Streaming", tag: "Cinema · Drama · Escapism", trend: "↑ Dominant", trendColor: "#e11d48",
+    description: "Streaming platforms, film studios, and live entertainment in 2026 are leaning into deep burgundy, plum noir, and cinematic crimson — rich, moody tones that signal prestige and narrative depth. Think HBO, A24, and Spotify's editorial identity. Dark drama with just enough warmth to feel human.",
+    colors: [{ name: "Cinematic Black", hex: "#0D0208" }, { name: "Deep Burgundy", hex: "#6B1A2A" }, { name: "Plum Noir", hex: "#3D0C4A" }, { name: "Crimson Glow", hex: "#C0392B" }],
+    relation: "Media & Streaming palettes are built for screens in dark rooms. Deep crimson and plum noir create a cinematic gravity that draws viewers in before a single frame plays. These are the colors of anticipation — rich, immersive, and unapologetically dramatic. The palette promises that what follows is worth watching.",
+    psychology: ["Deep burgundy and plum trigger associations with intimacy, secrecy, and exclusivity — the psychological language of premium storytelling", "Crimson elevates heart rate subtly, creating anticipation and emotional readiness — the body prepares to feel something before the content begins", "Dark, saturated moody palettes signal that the experience will be rich and worth the investment of time and attention"],
+    wada: { chips: [{name:"Claret", hex:"#7B1F3A"},{name:"Mulberry", hex:"#5C2D5E"},{name:"Madder", hex:"#A3253B"},{name:"Pitch", hex:"#0F0508"}], note: "Wada's Plate 93 explores what he called 'the palette of ceremony and shadow' — Claret, Mulberry, and Madder arranged from warm to cool. These were the pigments of imperial robes and theatrical curtains across both Eastern and Western traditions. He wrote that such colors 'do not decorate — they prepare the eye for something important.'" } },
+  { name: "High End Tech", tag: "Premium & Precision", trend: "↑ Strong", trendColor: "#94a3b8",
+    description: "Apple, NVIDIA, and Dyson define this space — obsidian blacks and cool space greys with a single cold-white or brushed-silver accent. Zero warmth, zero noise. Every color choice signals precision engineering, restraint, and premium quality. Less is more, always.",
+    colors: [{ name: "Obsidian", hex: "#0D0D0D" }, { name: "Space Grey", hex: "#3A3A3C" }, { name: "Brushed Silver", hex: "#C0C0C8" }, { name: "Cold White", hex: "#F2F2F7" }],
+    relation: "High End Tech strips everything warm from the palette and leaves only precision. Obsidian black, cold silver, and barely-perceptible cool grey — these are the colors of materials engineered to thousandths of a millimeter. Brands here don't communicate with color, they communicate with the near-absence of it.",
+    psychology: ["Cool greys and blacks suppress emotional noise and signal rational superiority — the consumer feels they are making an intelligent, considered choice", "Monochromatic restraint creates a halo of craftsmanship — the absence of color says the product speaks for itself", "Silver and white carry strong associations with cleanliness, precision, and technological advancement across global markets"],
+    wada: { chips: [{name:"Charcoal", hex:"#36454F"},{name:"Pewter", hex:"#8E9297"},{name:"Silver", hex:"#C0C0C0"},{name:"Platinum", hex:"#E5E4E2"}], note: "Wada's achromatic plates are among his most disciplined. In Plate 5, he arranges five grey tones from near-black to near-white, calling the sequence 'the palette of steel and fog.' He noted that removing color from a composition forces the eye to perceive weight, texture, and form instead — which is precisely what premium hardware brands have built empires on." } },
+];
+
+// -- Builder state --
+const builderSlots = [
+  { hex: '#F86400', name: 'Color One' },
+  { hex: '#FCB301', name: 'Color Two' },
+  { hex: '#090E19', name: 'Color Three' },
+  { hex: '#0C487D', name: 'Color Four' },
+];
+
+let activeMode = 'catalog'; // 'catalog' | 'builder'
+let active = 0;
+const isLight = hex => parseInt(hex.replace('#',''), 16) > 0xaaaaaa;
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1600);
+}
+function copyHex(hex) {
+  navigator.clipboard.writeText(hex).catch(() => {});
+  showToast();
+}
+
+// -- Catalog render --
+function render() {
+  const p = palettes[active];
+  renderNav();
+  const badge = document.getElementById('badge');
+  badge.textContent = p.trend;
+  badge.style.cssText = `color:${p.trendColor};background:${p.trendColor}18;border:1px solid ${p.trendColor}44;font-size:10px;font-family:monospace;letter-spacing:2px;padding:4px 10px;border-radius:2px;`;
+  document.getElementById('tag').textContent = p.tag.toUpperCase();
+  document.getElementById('palette-name').textContent = p.name;
+  document.getElementById('description').textContent = p.description;
+  document.getElementById('gradient-bar').style.background = `linear-gradient(90deg, ${p.colors.map(c => c.hex).join(', ')})`;
+  document.getElementById('swatches').innerHTML = p.colors.map(c => `
+    <div class="swatch" onclick="copyHex('${c.hex}')" style="background:${c.hex}"
+      onmouseenter="this.style.borderColor='${isLight(c.hex)?'#000':'#fff'}'"
+      onmouseleave="this.style.borderColor='transparent'">
+      <div class="swatch-label" style="background:linear-gradient(transparent,${isLight(c.hex)?'rgba(0,0,0,0.2)':'rgba(0,0,0,0.55)'})">
+        <div class="swatch-hex" style="color:${isLight(c.hex)?'#111':'#fff'}">${c.hex}</div>
+        <div class="swatch-name" style="color:${isLight(c.hex)?'#333':'#ccc'}">${c.name}</div>
+      </div>
+    </div>`).join('');
+  document.getElementById('relation').textContent = p.relation;
+  document.getElementById('insight').style.borderLeft = `3px solid ${p.trendColor}`;
+  document.getElementById('psych-list').innerHTML = p.psychology.map(b => `<li>${b}</li>`).join('');
+  document.getElementById('psychology').style.borderLeft = `3px solid ${p.trendColor}`;
+  document.getElementById('wada-chips').innerHTML = p.wada.chips.map(c => {
+    const light = parseInt(c.hex.slice(1),16) > 0xaaaaaa;
+    return `<div style="flex:1"><div class="wada-chip" style="background:${c.hex};border:1px solid ${light?'rgba(0,0,0,0.1)':'rgba(255,255,255,0.05)'}"></div><div class="wada-chip-name">${c.name}</div><div class="wada-chip-name" style="color:#666;margin-top:2px">${c.hex}</div></div>`;
+  }).join('');
+  document.getElementById('wada-note').textContent = p.wada.note;
+  document.getElementById('wada').style.borderLeft = `3px solid ${p.trendColor}`;
+  document.getElementById('counter').textContent = `${active + 1} / ${palettes.length}`;
+}
+function setActive(i) { active = i; activeMode = 'catalog'; switchView('catalog'); render(); }
+
+// -- Nav --
+function renderNav() {
+  document.getElementById('nav').innerHTML =
+    palettes.map((pal, i) =>
+      `<button class="nav-btn ${activeMode==='catalog' && i===active ? 'active' : ''}" onclick="setActive(${i})">${pal.name}</button>`
+    ).join('') +
+    `<button class="nav-btn ${activeMode==='builder' ? 'active' : ''}" onclick="openBuilder()" style="${activeMode==='builder'?'':'border-color:#333;color:#888;'}">＋ YOUR PALETTE</button>`;
+}
+
+// -- View switcher --
+function switchView(mode) {
+  activeMode = mode;
+  document.getElementById('catalog-view').classList.toggle('hidden', mode !== 'catalog');
+  document.getElementById('builder-panel').classList.toggle('active', mode === 'builder');
+  renderNav();
+}
+
+// -- Builder --
+function openBuilder() {
+  switchView('builder');
+  renderBuilderSlots();
+}
+
+function renderBuilderSlots() {
+  document.getElementById('builder-colors').innerHTML = builderSlots.map((slot, i) => `
+    <div class="builder-color-slot">
+      <div class="builder-swatch-preview" id="preview-${i}" style="background:${slot.hex}" onclick="document.getElementById('picker-${i}').click()"></div>
+      <div class="color-input-wrap">
+        <input type="color" class="color-picker" id="picker-${i}" value="${slot.hex}" oninput="onPickerChange(${i}, this.value)" />
+        <input type="text" class="hex-input" id="hex-${i}" value="${slot.hex}" maxlength="7" placeholder="#000000" oninput="onHexType(${i}, this.value)" />
+      </div>
+      <input type="text" class="name-input" id="name-${i}" value="${slot.name}" maxlength="24" placeholder="Color name..." oninput="builderSlots[${i}].name=this.value" />
+    </div>`).join('');
+  updateBuilderGradient();
+}
+
+function onPickerChange(i, val) {
+  builderSlots[i].hex = val;
+  document.getElementById('hex-' + i).value = val;
+  document.getElementById('preview-' + i).style.background = val;
+  updateBuilderGradient();
+}
+
+function onHexType(i, val) {
+  const clean = val.startsWith('#') ? val : '#' + val;
+  if (/^#[0-9A-Fa-f]{6}$/.test(clean)) {
+    builderSlots[i].hex = clean;
+    document.getElementById('picker-' + i).value = clean;
+    document.getElementById('preview-' + i).style.background = clean;
+    updateBuilderGradient();
+  }
+}
+
+function updateBuilderGradient() {
+  document.getElementById('builder-gradient').style.background =
+    `linear-gradient(90deg, ${builderSlots.map(s => s.hex).join(', ')})`;
+}
+
+// -- AI Wada Lens --
+async function applyWadaLens() {
+  const paletteName = document.getElementById('custom-palette-name').value.trim() || 'Custom Palette';
+  const colors = builderSlots.map((s, i) => ({
+    hex: s.hex,
+    name: document.getElementById('name-' + i)?.value || s.name
+  }));
+
+  const btn = document.getElementById('apply-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-dots">ANALYZING</span>';
+
+  const prompt = `You are a color theory expert specializing in Sanzo Wada's 1933 work "A Dictionary of Color Combinations." 
+
+A user has built a custom 4-color palette called "${paletteName}":
+${colors.map((c, i) => `${i+1}. ${c.name} — ${c.hex}`).join('\n')}
+
+Respond ONLY with a valid JSON object (no markdown, no backticks, no explanation outside the JSON):
+
+{
+  "reading": "2-3 sentences analyzing the overall harmony, tension, and character of this specific palette. What story does it tell? What emotions does it carry?",
+  "psychology": [
+    "First psychological effect of this specific palette combination (1-2 sentences)",
+    "Second psychological effect (1-2 sentences)", 
+    "Third psychological effect (1-2 sentences)"
+  ],
+  "wada": {
+    "chips": [
+      {"name": "Historical Wada pigment name", "hex": "#XXXXXX"},
+      {"name": "Historical Wada pigment name", "hex": "#XXXXXX"},
+      {"name": "Historical Wada pigment name", "hex": "#XXXXXX"},
+      {"name": "Historical Wada pigment name", "hex": "#XXXXXX"}
+    ],
+    "note": "2-3 sentences connecting this palette to Sanzo Wada's observations, referencing a specific plate number and his historical color sources. Include a short Wada quote or paraphrase."
+  }
+}
+
+The 4 Wada chips should be historically accurate pigment names from Wada's dictionary that relate meaningfully to the user's palette. Choose hex values that are close to but not identical to the user's colors — the Wada analogs should feel like the 1933 pigment-world equivalent.`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const text = data.content?.find(b => b.type === 'text')?.text || '';
+    const clean = text.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
+
+    renderBuilderResult(colors, result, paletteName);
+  } catch (err) {
+    document.getElementById('br-relation').textContent = 'Something went wrong. Please try again.';
+    document.getElementById('builder-result').classList.add('show');
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'APPLY WADA LENS';
+}
+
+function renderBuilderResult(colors, result, paletteName) {
+  const accentHex = colors[0].hex;
+
+  document.getElementById('br-relation').textContent = result.reading;
+  document.getElementById('br-insight').style.borderLeft = `3px solid ${accentHex}`;
+
+  document.getElementById('br-psych-list').innerHTML = result.psychology.map(b => `<li>${b}</li>`).join('');
+  document.getElementById('br-psychology').style.borderLeft = `3px solid ${accentHex}`;
+
+  document.getElementById('br-wada-chips').innerHTML = result.wada.chips.map(c => {
+    const light = parseInt(c.hex.replace('#',''), 16) > 0xaaaaaa;
+    return `<div style="flex:1">
+      <div class="wada-chip" style="background:${c.hex};border:1px solid ${light?'rgba(0,0,0,0.1)':'rgba(255,255,255,0.05)'};cursor:pointer" onclick="copyHex('${c.hex}')"></div>
+      <div class="wada-chip-name">${c.name}</div>
+      <div class="wada-chip-name" style="color:#666;margin-top:2px">${c.hex}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('br-wada-note').textContent = result.wada.note;
+  document.getElementById('br-wada').style.borderLeft = `3px solid ${accentHex}`;
+
+  const resultEl = document.getElementById('builder-result');
+  resultEl.classList.add('show');
+  document.getElementById('builder-export-bar').style.display = 'flex';
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+// -- Export functions --
+
+function getPaletteForExport() {
+  const p = palettes[active];
+  return {
+    name: p.name,
+    tag: p.tag,
+    colors: p.colors,
+    wada: p.wada
+  };
+}
+
+function getBuilderPaletteForExport() {
+  const name = document.getElementById('custom-palette-name').value.trim() || 'Custom Palette';
+  const colors = builderSlots.map((s, i) => ({
+    hex: s.hex,
+    name: document.getElementById('name-' + i)?.value || s.name
+  }));
+  return { name, tag: 'CUSTOM PALETTE', colors, wada: null };
+}
+
+function flashBtn(id, text) {
+  const btn = document.getElementById(id);
+  const orig = btn.textContent;
+  btn.textContent = text;
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
+}
+
+function exportCopyHex() {
+  const p = getPaletteForExport();
+  navigator.clipboard.writeText(p.colors.map(c => c.hex).join('  '));
+  flashBtn('btn-copy-hex', 'COPIED ✓');
+}
+
+function exportCopyCss() {
+  var p = getPaletteForExport();
+  var lines = p.colors.map(function(c, i) { return '  --color-' + (i+1) + ': ' + c.hex + '; /* ' + c.name + ' */'; });
+  var css = ':root {\n' + lines.join('\n') + '\n}';
+  navigator.clipboard.writeText(css);
+  flashBtn('btn-copy-css', 'COPIED ✓');
+}
+
+function builderExportCopyHex() {
+  const p = getBuilderPaletteForExport();
+  navigator.clipboard.writeText(p.colors.map(c => c.hex).join('  '));
+  flashBtn('btn-builder-copy-hex', 'COPIED ✓');
+}
+
+function builderExportCopyCss() {
+  var p = getBuilderPaletteForExport();
+  var lines = p.colors.map(function(c, i) { return '  --color-' + (i+1) + ': ' + c.hex + '; /* ' + c.name + ' */'; });
+  var css = ':root {\n' + lines.join('\n') + '\n}';
+  navigator.clipboard.writeText(css);
+  flashBtn('btn-builder-copy-css', 'COPIED ✓');
+}
+
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function drawPaletteCard(palette) {
+  var W = 1200, H = 630;
+  var canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  var ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#080808';
+  ctx.fillRect(0, 0, W, H);
+
+  var grad = ctx.createLinearGradient(0, 0, W, 0);
+  palette.colors.forEach(function(c, i) { grad.addColorStop(i / (palette.colors.length - 1), c.hex); });
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, 3);
+
+  ctx.fillStyle = '#f0f0f0';
+  ctx.font = 'bold 52px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(palette.name, 60, 100);
+
+  ctx.fillStyle = '#555';
+  ctx.font = '14px monospace';
+  ctx.fillText(palette.tag.toUpperCase(), 62, 132);
+
+  var swatchY = 172, swatchH = 280, swatchW = (W - 120 - 36) / 4;
+  palette.colors.forEach(function(c, i) {
+    var x = 60 + i * (swatchW + 12);
+    ctx.fillStyle = c.hex;
+    rrect(ctx, x, swatchY, swatchW, swatchH, 6);
+    ctx.fill();
+    var light = parseInt(c.hex.replace('#',''), 16) > 0xaaaaaa;
+    ctx.fillStyle = light ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.85)';
+    ctx.font = 'bold 13px monospace';
+    ctx.fillText(c.hex, x + 14, swatchY + swatchH - 36);
+    ctx.fillStyle = light ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.55)';
+    ctx.font = '12px monospace';
+    ctx.fillText(c.name, x + 14, swatchY + swatchH - 18);
+  });
+
+  if (palette.wada && palette.wada.chips) {
+    var chipY = 494, chipH = 18, chipW = (W - 120 - 36) / 4;
+    ctx.fillStyle = '#333';
+    ctx.font = '11px monospace';
+    ctx.fillText('WADA LENS', 60, chipY - 10);
+    palette.wada.chips.forEach(function(c, i) {
+      var x = 60 + i * (chipW + 12);
+      ctx.fillStyle = c.hex;
+      rrect(ctx, x, chipY, chipW, chipH, 3);
+      ctx.fill();
+      ctx.fillStyle = '#555';
+      ctx.font = '11px monospace';
+      ctx.fillText(c.name + '  ' + c.hex, x, chipY + chipH + 16);
+    });
+  }
+
+  ctx.fillStyle = '#2a2a2a';
+  ctx.fillRect(0, H - 48, W, 1);
+  ctx.fillStyle = '#444';
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText('LOSQ STUDIOS  ·  WADA COLOR INTELLIGENCE  ·  2026', 60, H - 18);
+  ctx.textAlign = 'right';
+  ctx.fillText('losqstudios.com', W - 60, H - 18);
+
+  return canvas;
+}
+
+function doDownload(canvas, name) {
+  var link = document.createElement('a');
+  link.download = name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-palette.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function withLogo(canvas, callback) {
+  var img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    var logoH = 56;
+    var logoW = Math.round(img.width * (logoH / img.height));
+    ctx.drawImage(img, canvas.width - logoW - 60, 42, logoW, logoH);
+    callback(canvas);
+  };
+  img.onerror = function() { callback(canvas); };
+  img.src = LOGO_URI + "?v=" + Date.now();
+}
+
+function exportDownloadPng() {
+  var p = getPaletteForExport();
+  var canvas = drawPaletteCard(p);
+  withLogo(canvas, function(c) { doDownload(c, p.name); });
+}
+
+function builderExportDownloadPng() {
+  var p = getBuilderPaletteForExport();
+  var chips = [];
+  var chipEls = document.querySelectorAll('#br-wada-chips > div');
+  chipEls.forEach(function(el) {
+    var divs = el.querySelectorAll('div');
+    if (divs.length >= 3) chips.push({ name: divs[1].textContent, hex: divs[2].textContent });
+  });
+  if (chips.length) p.wada = { chips: chips };
+  var canvas = drawPaletteCard(p);
+  withLogo(canvas, function(c) { doDownload(c, p.name); });
+}
+
+// -- Init --
+render();
+</script>
+</body>
+</html>
