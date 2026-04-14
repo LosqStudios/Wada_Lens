@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wada Lens</title>
+<style>
+  @font-face { font-family:'TheAcresSerif'; src:url('https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/TheAcresSerif.woff2') format('woff2'); }
+  @font-face { font-family:'AkiraExpanded'; src:url('https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/AkiraExpanded.woff2') format('woff2'); }
+  @font-face { font-family:'BerkeleyMono'; src:url('https://raw.githubusercontent.com/LosqStudios/LS_Source/6301d0b738cb854921afc84c17df29d93db4d233/BerkeleyMono-Regular.woff2') format('woff2'); }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  input, button, div, ul, li, p, footer { border-radius:0 !important; }
+  html, body { background:#080808; width:100%; }
+  body { font-family:'BerkeleyMono',monospace; color:#fff; }
+  .wrap { width:100%; max-width:860px; margin:0 auto; padding:40px 28px; }
+  .top-row { display:flex; justify-content:space-between; align-items:flex-start; width:100%; }
+  .eyebrow { font-size:10px; letter-spacing:4px; color:#555; text-transform:uppercase; margin-bottom:12px; }
+  .title { font-family:'AkiraExpanded',sans-serif; font-size:48px; font-weight:400; line-height:1.1; color:#f0f0f0; margin-bottom:20px; }
+  .title em { font-style:italic; color:#888; }
+  .divider { width:48px; height:2px; background:#333; margin-bottom:36px; }
+  .intro { font-size:13px; color:#888; letter-spacing:2px; margin-bottom:28px; line-height:1.8; width:100%; }
+  .field-wrap { width:100%; margin-bottom:20px; }
+  .field-label { font-size:10px; color:#444; letter-spacing:3px; margin-bottom:8px; }
+  .palette-input { width:100%; background:#0f0f0f; border:1px solid #1c1c1c; color:#ccc; font-family:'TheAcresSerif',serif; font-size:20px; padding:12px 16px; }
+  .palette-input:focus { outline:none; border-color:#333; color:#fff; }
+  .color-grid { width:100%; display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:28px; }
+  .slot { width:100%; background:#0f0f0f; border:1px solid #1c1c1c; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .swatch { width:100%; height:80px; cursor:pointer; border:2px solid #222; transition:transform 0.15s; }
+  .swatch:hover { transform:scale(1.02); }
+  .input-row { display:flex; align-items:center; gap:8px; width:100%; }
+  .cpicker { width:28px; height:28px; flex-shrink:0; border:none; cursor:pointer; padding:0; background:none; }
+  .hinput { flex:1; min-width:0; background:#0a0a0a; border:1px solid #222; color:#ccc; font-family:'BerkeleyMono',monospace; font-size:12px; padding:6px 10px; letter-spacing:1px; }
+  .hinput:focus { outline:none; border-color:#444; color:#fff; }
+  .ninput { width:100%; background:#0a0a0a; border:1px solid #1a1a1a; color:#666; font-family:'BerkeleyMono',monospace; font-size:11px; padding:5px 10px; }
+  .ninput:focus { outline:none; border-color:#333; color:#aaa; }
+  .glabel { font-size:10px; color:#444; letter-spacing:2px; margin-bottom:10px; }
+  .gbar { width:100%; height:8px; margin-bottom:28px; background:#111; }
+  .apply { width:100%; padding:16px; background:#f0f0f0; color:#080808; font-family:'BerkeleyMono',monospace; font-size:12px; letter-spacing:3px; border:none; cursor:pointer; font-weight:700; }
+  .apply:hover { background:#fff; }
+  .apply:disabled { background:#1a1a1a; color:#444; cursor:not-allowed; }
+  .loading-dots::after { content:''; animation:dots 1.2s steps(4,end) infinite; }
+  @keyframes dots { 0%,20%{content:'.'} 40%{content:'..'} 60%{content:'...'} 80%,100%{content:''} }
+  .result { width:100%; margin-top:28px; display:none; }
+  .result.show { display:block; }
+  .mode-bar { display:flex; gap:8px; margin-bottom:20px; width:100%; }
+  .mode-btn { flex:1; padding:9px 8px; background:transparent; border:1px solid #222; color:#555; font-family:'BerkeleyMono',monospace; font-size:10px; letter-spacing:2px; cursor:pointer; text-align:center; transition:all 0.15s; }
+  .mode-btn:hover { border-color:#444; color:#aaa; }
+  .mode-btn.active { border-color:#f0f0f0; background:#f0f0f0; color:#080808; font-weight:700; }
+  .result-inner { padding:24px; transition:background 0.2s; }
+  .result-inner.mode-dark { background:#080808; }
+  .result-inner.mode-dark .panel { background:#080808; border-color:#1c1c1c; }
+  .result-inner.mode-dark .plabel { color:#444; }
+  .result-inner.mode-dark .panel p, .result-inner.mode-dark .plist li, .result-inner.mode-dark .wnote { color:#aaa; }
+  .result-inner.mode-dark .wlabel { color:#888; }
+  .result-inner.mode-dark .wsub { color:#444; }
+  .result-inner.mode-dark .wcname { color:#555; }
+  .result-inner.mode-dark .xbtn { border-color:#222; color:#666; }
+  .result-inner.mode-light { background:#f5f5f0; }
+  .result-inner.mode-light .panel { background:#f5f5f0; border-color:#ddd; }
+  .result-inner.mode-light .plabel { color:#999; }
+  .result-inner.mode-light .panel p, .result-inner.mode-light .plist li, .result-inner.mode-light .wnote { color:#444; }
+  .result-inner.mode-light .wlabel { color:#333; }
+  .result-inner.mode-light .wsub { color:#999; }
+  .result-inner.mode-light .wcname { color:#888; }
+  .result-inner.mode-light .xbtn { border-color:#ccc; color:#888; }
+  .result-inner.mode-light .xbtn:hover { border-color:#888; color:#333; }
+  .result-inner.mode-neutral { background:#2e2e2e; }
+  .result-inner.mode-neutral .panel { background:#2e2e2e; border-color:#3a3a3a; }
+  .result-inner.mode-neutral .plabel { color:#666; }
+  .result-inner.mode-neutral .panel p, .result-inner.mode-neutral .plist li, .result-inner.mode-neutral .wnote { color:#bbb; }
+  .result-inner.mode-neutral .wlabel { color:#aaa; }
+  .result-inner.mode-neutral .wsub { color:#666; }
+  .result-inner.mode-neutral .wcname { color:#777; }
+  .result-inner.mode-neutral .xbtn { border-color:#444; color:#777; }
+  .result-inner.mode-neutral .xbtn:hover { border-color:#888; color:#ccc; }
+  .panel { width:100%; border:1px solid #1c1c1c; padding:22px 26px; margin-bottom:16px; }
+  .plabel { font-size:10px; letter-spacing:3px; color:#444; margin-bottom:12px; }
+  .panel p { font-size:13px; color:#aaa; line-height:1.9; }
+  .plist { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .plist li { font-size:13px; color:#aaa; line-height:1.7; padding-left:18px; position:relative; }
+  .plist li::before { content:'—'; position:absolute; left:0; color:#444; }
+  .wlabel { font-size:16px; font-family:'TheAcresSerif',serif; color:#888; margin-bottom:4px; }
+  .wsub { font-size:10px; color:#444; letter-spacing:2px; margin-bottom:16px; }
+  .wchips { display:flex; gap:8px; margin-bottom:16px; width:100%; }
+  .wchip { height:36px; flex:1; }
+  .wcname { font-size:9px; color:#555; margin-top:5px; text-align:center; line-height:1.3; }
+  .wnote { font-size:13px; color:#aaa; line-height:1.9; }
+  .xbar { display:flex; gap:8px; margin-top:20px; width:100%; }
+  .xbtn { flex:1; padding:11px 8px; background:transparent; border:1px solid #222; color:#666; font-family:'BerkeleyMono',monospace; font-size:10px; letter-spacing:2px; cursor:pointer; text-align:center; }
+  .xbtn:hover { border-color:#555; color:#ccc; }
+  .xbtn.copied { border-color:#4ade80; color:#4ade80; }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#f0f0f0; color:#080808; font-family:'BerkeleyMono',monospace; font-size:12px; padding:10px 20px; opacity:0; transition:opacity 0.2s; pointer-events:none; font-weight:700; letter-spacing:1px; }
+  .toast.show { opacity:1; }
+  .foot { margin-top:36px; padding-top:20px; border-top:1px solid #161616; text-align:center; }
+  .foot p { font-size:10px; color:#2a2a2a; line-height:1.8; }
+  @media (max-width:600px) { .title{font-size:32px;} .color-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-row">
+    <div>
+      <div class="eyebrow">Color Intelligence</div>
+      <div class="title">Wada<br><em>Lens</em></div>
+    </div>
+    <img src="https://raw.githubusercontent.com/LosqStudios/LS_Source/f7c90a552b2d24f08830b33d066569a7b56729d3/LosqStudios_SerifBox_White_V01.png" alt="Losq Studios" style="height:40px;width:auto;opacity:0.9;flex-shrink:0;margin-top:4px;" />
+  </div>
+  <div class="divider"></div>
+
+  <div style="display:flex;gap:0;width:100%;margin-bottom:28px;">
+    <div style="width:3px;min-width:3px;background:#e0e0d8;flex-shrink:0;"></div>
+    <div style="flex:1;background:#0f0f0f;border:1px solid #1c1c1c;border-left:none;padding:24px 28px;">
+      <p style="font-size:13px;color:#666;line-height:1.9;">Wada Lens cross-references your color palette against Sanzo Wada's <em style="color:#555">A Dictionary of Color Combinations</em> — a 1933 archive of historically proven pigment pairings. Enter any four colors and the tool will analyze their harmony, identify their psychological effects, and return a time tested refinement drawn directly from Wada's work.</p>
+    </div>
+  </div>
+
+  <div class="intro">
+    PICK FOUR COLORS — NAME YOUR PALETTE — APPLY THE WADA LENS<br>
+    <span style="color:#333;font-size:11px;letter-spacing:1px;">Claude will analyze your combination through Sanzo Wada's 1933 color theory.</span>
+  </div>
+
+  <div class="field-wrap">
+    <div class="field-label">PALETTE NAME</div>
+    <input class="palette-input" id="palette-name" type="text" placeholder="Name your palette..." maxlength="40" />
+  </div>
+
+  <div class="color-grid" id="color-grid"></div>
+
+  <div class="glabel">GRADIENT PREVIEW</div>
+  <div class="gbar" id="gbar"></div>
+
+  <button class="apply" id="apply-btn" onclick="applyWadaLens()">APPLY WADA LENS</button>
+
+  <div class="result" id="result">
+    <div class="mode-bar">
+      <button class="mode-btn active" id="mode-dark" onclick="setMode('dark')">DARK</button>
+      <button class="mode-btn" id="mode-light" onclick="setMode('light')">LIGHT</button>
+      <button class="mode-btn" id="mode-neutral" onclick="setMode('neutral')">NEUTRAL</button>
+    </div>
+    <div class="result-inner mode-dark" id="result-inner">
+      <div class="panel" id="reading-panel">
+        <div class="plabel">PALETTE READING</div>
+        <p id="reading"></p>
+      </div>
+      <div class="panel" id="psych-panel">
+        <div class="plabel">PSYCHOLOGICAL EFFECTS</div>
+        <ul class="plist" id="psych-list"></ul>
+      </div>
+      <div class="panel" id="wada-panel">
+        <div class="wlabel">Wada Lens — A Dictionary of Color Combinations</div>
+        <div class="wsub">A TIME TESTED REFINEMENT FOR YOUR PALETTE</div>
+        <div class="wchips" id="wchips"></div>
+        <p class="wnote" id="wnote"></p>
+      </div>
+      <div class="panel" id="hierarchy-panel">
+        <div class="plabel">WADA COLOR HIERARCHY</div>
+        <div id="hierarchy-bars"></div>
+      </div>
+      <div class="xbar">
+        <button class="xbtn" id="btn-hex" onclick="exportHex()">COPY HEX</button>
+        <button class="xbtn" id="btn-css" onclick="exportCss()">COPY CSS</button>
+        <button class="xbtn" style="background:#f0f0f0;color:#080808;border-color:#f0f0f0;font-weight:700;" onclick="exportPng()">DOWNLOAD PNG</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>Wada Lens color references drawn from <em style="color:#444">A Dictionary of Color Combinations</em> by Sanzo Wada (和田三造).<br>
+    Originally published 1933. Reproduced by Seigensha Art Publishing, Kyoto, Japan.<br>
+    All Wada color names and combinations are the intellectual legacy of Sanzo Wada and Seigensha Art Publishing, Inc.</p>
+  </div>
+</div>
+<div class="toast" id="toast">COPIED ✓</div>
+
+<script>
+var slots=[{hex:'#F86400',name:'Color One'},{hex:'#FCB301',name:'Color Two'},{hex:'#090E19',name:'Color Three'},{hex:'#0C487D',name:'Color Four'}];
+var _lastHierarchy = null;
+
+// ── Color utilities ──────────────────────────────────────────
+function hexToHsl(hex) {
+  var r=parseInt(hex.slice(1,3),16)/255, g=parseInt(hex.slice(3,5),16)/255, b=parseInt(hex.slice(5,7),16)/255;
+  var max=Math.max(r,g,b), min=Math.min(r,g,b), l=(max+min)/2, h=0, s=0;
+  if (max!==min) {
+    var d=max-min;
+    s=l>0.5?d/(2-max-min):d/(max+min);
+    if (max===r) h=(g-b)/d+(g<b?6:0);
+    else if (max===g) h=(b-r)/d+2;
+    else h=(r-g)/d+4;
+    h/=6;
+  }
+  return {h:h*360, s:s*100, l:l*100};
+}
+
+// ── Wada hierarchy ───────────────────────────────────────────
+function assignWadaHierarchy(chips) {
+  var analyzed = chips.map(function(c,i) {
+    var hsl = hexToHsl(c.hex);
+    return {
+      c:c, i:i, hsl:hsl,
+      isNeutral:   hsl.s < 15,
+      isDark:      hsl.l < 25,
+      isLight:     hsl.l > 75,
+      isWarm:      (hsl.h >= 0 && hsl.h <= 60) || hsl.h >= 330,
+      isCool:      hsl.h > 150 && hsl.h <= 270,
+      isSaturated: hsl.s > 60,
+      isTeal:      hsl.h > 150 && hsl.h <= 210 && hsl.s > 20
+    };
+  });
+
+  var scores = analyzed.map(function(a) {
+    var d=0, sec=0, acc=0, n=0;
+    if (a.isDark && a.isNeutral) d+=5; else if (a.isDark) d+=3;
+    if (a.isNeutral) d+=2;
+    if (a.isCool && !a.isSaturated) d+=2;
+    if (a.isWarm && a.isSaturated) d-=3;
+    if (a.isWarm && !a.isDark) sec+=4;
+    if (a.isTeal) sec+=3;
+    if (a.hsl.s > 30 && a.hsl.l > 25 && a.hsl.l < 65) sec+=2;
+    if (a.isDark && !a.isNeutral) sec+=2;
+    if (a.isSaturated && a.isWarm) acc+=5;
+    if (a.hsl.s > 70) acc+=3;
+    if (a.isLight && a.isSaturated) acc+=2;
+    if (a.isDark) acc-=2;
+    if (a.isNeutral && a.isLight) n+=5;
+    if (a.isLight) n+=3;
+    if (a.hsl.s < 30 && !a.isDark) n+=2;
+    if (a.isTeal && a.hsl.l > 60) n+=2;
+    return {a:a, scores:{dominant:d, secondary:sec, accent:acc, neutral:n}};
+  });
+
+  var roleNames = ['dominant','secondary','accent','neutral'];
+  var assigned = {}, used = [];
+  roleNames.forEach(function(role) {
+    var best=-Infinity, bestIdx=-1;
+    scores.forEach(function(s,i) {
+      if (used.indexOf(i)===-1 && s.scores[role]>best) { best=s.scores[role]; bestIdx=i; }
+    });
+    assigned[role] = analyzed[bestIdx];
+    used.push(bestIdx);
+  });
+
+  var dom=assigned.dominant, sec=assigned.secondary, acc=assigned.accent, neu=assigned.neutral;
+  var pDom=60, pSec=25, pAcc=10, pNeu=5;
+
+  if (dom.isNeutral && dom.isDark)        { pDom=70; pSec=20; pAcc=7;  pNeu=3; }
+  else if (dom.isNeutral && dom.isLight)  { pDom=65; pSec=22; pAcc=8;  pNeu=5; }
+
+  var warmCount = analyzed.filter(function(a){ return a.isWarm; }).length;
+  if (warmCount >= 2) { pSec=Math.min(pSec+5,30); pAcc=Math.min(pAcc+5,15); pDom=Math.max(pDom-8,45); pNeu=Math.max(100-pDom-pSec-pAcc,3); }
+
+  var contrastDiff = acc.hsl.l - dom.hsl.l;
+  if (contrastDiff > 55 && acc.isSaturated) { pDom=Math.min(pDom+5,72); pSec=Math.max(pSec-5,15); pAcc=Math.min(pAcc+3,15); pNeu=Math.max(100-pDom-pSec-pAcc,3); }
+
+  var lVals = analyzed.map(function(a){ return a.hsl.l; });
+  var lRange = Math.max.apply(null,lVals) - Math.min.apply(null,lVals);
+  if (lRange < 30) { pDom=45; pSec=30; pAcc=15; pNeu=10; }
+
+  if (dom.isCool && acc.isWarm && acc.isSaturated) { pAcc=Math.min(pAcc+3,15); pSec=Math.max(pSec-3,18); }
+  if (sec.isTeal) { pSec=Math.min(pSec+3,30); pDom=Math.max(pDom-3,45); }
+
+  var total = pDom+pSec+pAcc+pNeu;
+  if (total !== 100) pDom += (100-total);
+
+  return [
+    {role:'DOMINANT',  pct:pDom, chip:dom.c},
+    {role:'SECONDARY', pct:pSec, chip:sec.c},
+    {role:'ACCENT',    pct:pAcc, chip:acc.c},
+    {role:'NEUTRAL',   pct:pNeu, chip:neu.c}
+  ];
+}
+
+// ── Hierarchy bars render ────────────────────────────────────
+function renderHierarchyBars(hierarchy) {
+  var inner = document.getElementById('result-inner');
+  var isLight   = inner.classList.contains('mode-light');
+  var isNeutral = inner.classList.contains('mode-neutral');
+  var labelColor = isLight ? '#999' : isNeutral ? '#777' : '#555';
+
+  // Single stacked bar
+  var stackedBar = '<div style="width:100%;height:32px;display:flex;margin-bottom:12px;">' +
+    hierarchy.map(function(h) {
+      return '<div style="width:'+h.pct+'%;height:100%;background:'+h.chip.hex+';position:relative;" title="'+h.role+' '+h.pct+'%"></div>';
+    }).join('') +
+  '</div>';
+
+  // Labels below
+  var labels = '<div style="display:flex;gap:0;width:100%;margin-bottom:20px;">' +
+    hierarchy.map(function(h) {
+      return '<div style="width:'+h.pct+'%;min-width:0;overflow:hidden;">'+
+        '<div style="font-size:9px;letter-spacing:1px;color:'+labelColor+';white-space:nowrap;padding-top:6px;">'+h.pct+'%</div>'+
+        '<div style="font-size:8px;color:'+labelColor+';opacity:0.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+h.role+'</div>'+
+      '</div>';
+    }).join('') +
+  '</div>';
+
+  // Individual bars
+  var indivBars = hierarchy.map(function(h) {
+    return '<div style="margin-bottom:14px;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">'+
+        '<span style="font-size:10px;letter-spacing:2px;color:'+labelColor+';">'+h.role+'</span>'+
+        '<span style="font-size:10px;letter-spacing:2px;color:'+labelColor+';">'+h.pct+'%</span>'+
+      '</div>'+
+      '<div style="display:flex;gap:6px;align-items:center;">'+
+        '<div style="flex:1;background:'+(isLight?'#ddd':isNeutral?'#3a3a3a':'#111')+';height:20px;">'+
+          '<div style="width:'+h.pct+'%;height:100%;background:'+h.chip.hex+';"></div>'+
+        '</div>'+
+        '<div style="font-size:10px;color:'+labelColor+';width:90px;text-align:right;">'+h.chip.name+'</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  document.getElementById('hierarchy-bars').innerHTML = stackedBar + labels + indivBars;
+}
+
+// ── Mode switcher ────────────────────────────────────────────
+function setMode(mode) {
+  var inner = document.getElementById('result-inner');
+  inner.className = 'result-inner mode-' + mode;
+  ['dark','light','neutral'].forEach(function(m) {
+    document.getElementById('mode-'+m).classList.toggle('active', m===mode);
+  });
+  if (_lastHierarchy) renderHierarchyBars(_lastHierarchy);
+}
+
+// ── UI init ──────────────────────────────────────────────────
+function showToast() { var t=document.getElementById('toast'); t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1600); }
+function copyHex(h) { navigator.clipboard.writeText(h).catch(function(){}); showToast(); }
+
+function init() {
+  document.getElementById('color-grid').innerHTML = slots.map(function(s,i) {
+    return '<div class="slot">'+
+      '<div class="swatch" id="sw'+i+'" style="background:'+s.hex+'" onclick="document.getElementById(\'cp'+i+'\').click()"></div>'+
+      '<div class="input-row">'+
+        '<input type="color" class="cpicker" id="cp'+i+'" value="'+s.hex+'" oninput="pick('+i+',this.value)"/>'+
+        '<input type="text" class="hinput" id="hi'+i+'" value="'+s.hex+'" maxlength="7" oninput="hextype('+i+',this.value)"/>'+
+      '</div>'+
+      '<input type="text" class="ninput" id="ni'+i+'" value="'+s.name+'" maxlength="24" placeholder="Color name..." oninput="slots['+i+'].name=this.value"/>'+
+    '</div>';
+  }).join('');
+  updateGrad();
+}
+
+function pick(i,v) { slots[i].hex=v; document.getElementById('hi'+i).value=v; document.getElementById('sw'+i).style.background=v; updateGrad(); }
+function hextype(i,v) { var c=v.startsWith('#')?v:'#'+v; if(/^#[0-9A-Fa-f]{6}$/.test(c)){ slots[i].hex=c; document.getElementById('cp'+i).value=c; document.getElementById('sw'+i).style.background=c; updateGrad(); } }
+function updateGrad() { document.getElementById('gbar').style.background='linear-gradient(90deg,'+slots.map(function(s){ return s.hex; }).join(',')+')'; }
+
+// ── Result render ────────────────────────────────────────────
+function renderResult(colors, res) {
+  var acc = colors[0].hex;
+
+  document.getElementById('reading').textContent = res.reading;
+  document.getElementById('reading-panel').style.borderLeft = '3px solid '+acc;
+
+  document.getElementById('psych-list').innerHTML = res.psychology.map(function(b){ return '<li>'+b+'</li>'; }).join('');
+  document.getElementById('psych-panel').style.borderLeft = '3px solid '+acc;
+
+  document.getElementById('wchips').innerHTML = res.wada.chips.map(function(c) {
+    var lt = parseInt(c.hex.replace('#',''),16) > 0xaaaaaa;
+    return '<div style="flex:1">'+
+      '<div class="wchip" style="background:'+c.hex+';border:1px solid '+(lt?'rgba(0,0,0,0.1)':'rgba(255,255,255,0.05)')+';cursor:pointer" onclick="copyHex(\''+c.hex+'\')"></div>'+
+      '<div class="wcname">'+c.name+'</div>'+
+      '<div class="wcname" style="color:#666;margin-top:2px">'+c.hex+'</div>'+
+    '</div>';
+  }).join('');
+  document.getElementById('wnote').textContent = res.wada.note;
+  document.getElementById('wada-panel').style.borderLeft = '3px solid '+acc;
+
+  _lastHierarchy = assignWadaHierarchy(res.wada.chips);
+  renderHierarchyBars(_lastHierarchy);
+  document.getElementById('hierarchy-panel').style.borderLeft = '3px solid '+acc;
+
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+  sendHeight();
+}
+
+// ── API call ─────────────────────────────────────────────────
+async function applyWadaLens() {
+  var name = document.getElementById('palette-name').value.trim() || 'Custom Palette';
+  var colors = slots.map(function(s,i){ return {hex:s.hex, name:document.getElementById('ni'+i)?.value||s.name}; });
+  var btn = document.getElementById('apply-btn');
+  btn.disabled=true; btn.innerHTML='<span class="loading-dots">ANALYZING</span>';
+
+  var prompt = 'You are a color theory expert specializing in Sanzo Wada\'s 1933 work "A Dictionary of Color Combinations."\n'+
+    'A user has built a custom 4-color palette called "'+name+'":\n'+
+    colors.map(function(c,i){ return (i+1)+'. '+c.name+' — '+c.hex; }).join('\n')+'\n'+
+    'Respond ONLY with valid JSON (no markdown, no backticks):\n'+
+    '{"reading":"2-3 sentences analyzing harmony and character.","psychology":["Effect one (1-2 sentences)","Effect two (1-2 sentences)","Effect three (1-2 sentences)"],"wada":{"chips":[{"name":"Wada pigment name","hex":"#XXXXXX"},{"name":"Wada pigment name","hex":"#XXXXXX"},{"name":"Wada pigment name","hex":"#XXXXXX"},{"name":"Wada pigment name","hex":"#XXXXXX"}],"note":"2-3 sentences connecting to Wada\'s color observations. No plate numbers."}}';
+
+  try {
+    var r = await fetch('https://wada-lens-proxy.nick-adb.workers.dev/', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514', max_tokens:1000, messages:[{role:'user',content:prompt}]})
+    });
+    var d = await r.json();
+    if (d.type==='error') throw new Error(d.error?.message||'API error');
+    var text = d.content?.find(function(b){ return b.type==='text'; })?.text || '';
+    if (!text) throw new Error('Empty response');
+    var m = text.match(/\{[\s\S]*\}/);
+    if (!m) throw new Error('No JSON');
+    renderResult(colors, JSON.parse(m[0]));
+  } catch(e) {
+    console.error('Wada Lens error:', e);
+    document.getElementById('reading').textContent = 'Error: ' + e.message;
+    document.getElementById('result').classList.add('show');
+  }
+
+  btn.disabled=false; btn.textContent='APPLY WADA LENS';
+}
+
+// ── PNG export ───────────────────────────────────────────────
+function loadFont(name,url) {
+  return new FontFace(name,'url('+url+')').load().then(function(f){ document.fonts.add(f); return f; }).catch(function(){ return null; });
+}
+
+function rrect(ctx,x,y,w,h,r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+function exportPng() {
+  var paletteName = document.getElementById('palette-name').value.trim() || 'Custom Palette';
+  var colors = slots.map(function(s,i){ return {hex:s.hex, name:document.getElementById('ni'+i)?.value||s.name}; });
+  var wadaChips = _lastHierarchy ? _lastHierarchy.map(function(h){ return h.chip; }) : [];
+
+  Promise.all([
+    loadFont('AkiraExpanded','https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/AkiraExpanded.woff2'),
+    loadFont('TheAcresSerif','https://raw.githubusercontent.com/LosqStudios/LS_Source/5f8a79cea96d8a67aef0252837e5131a1812ad1d/TheAcresSerif.woff2'),
+    loadFont('BerkeleyMono','https://raw.githubusercontent.com/LosqStudios/LS_Source/6301d0b738cb854921afc84c17df29d93db4d233/BerkeleyMono-Regular.woff2')
+  ]).then(function(){
+    var W=1200, H=740;
+    var canvas=document.createElement('canvas');
+    canvas.width=W; canvas.height=H;
+    var ctx=canvas.getContext('2d');
+
+    ctx.fillStyle='#080808'; ctx.fillRect(0,0,W,H);
+
+    var grad=ctx.createLinearGradient(0,0,W,0);
+    colors.forEach(function(c,i){ grad.addColorStop(i/(colors.length-1),c.hex); });
+    ctx.fillStyle=grad; ctx.fillRect(0,0,W,3);
+
+    ctx.fillStyle='#f0f0f0';
+    ctx.font='500 52px AkiraExpanded, sans-serif';
+    ctx.textAlign='left';
+    ctx.fillText(paletteName,60,100);
+
+    ctx.fillStyle='#555';
+    ctx.font='14px BerkeleyMono, monospace';
+    ctx.fillText('CUSTOM PALETTE',62,132);
+
+    var swatchY=172, swatchH=220, swatchW=(W-120-36)/4;
+    colors.forEach(function(c,i){
+      var x=60+i*(swatchW+12);
+      ctx.fillStyle=c.hex; ctx.fillRect(x,swatchY,swatchW,swatchH);
+      var light=parseInt(c.hex.replace('#',''),16)>0xaaaaaa;
+      ctx.fillStyle=light?'rgba(0,0,0,0.7)':'rgba(255,255,255,0.85)';
+      ctx.font='bold 13px BerkeleyMono, monospace';
+      ctx.fillText(c.hex,x+14,swatchY+swatchH-36);
+      ctx.fillStyle=light?'rgba(0,0,0,0.5)':'rgba(255,255,255,0.55)';
+      ctx.font='12px BerkeleyMono, monospace';
+      ctx.fillText(c.name,x+14,swatchY+swatchH-18);
+    });
+
+    if (wadaChips.length) {
+      var chipW=(W-120-36)/4;
+      var totalW=4*chipW+3*12;
+      ctx.fillStyle='#f5f5f5'; ctx.fillRect(60,430,totalW,66);
+      ctx.fillStyle='#111';
+      ctx.font='22px TheAcresSerif, serif';
+      ctx.fillText('Wada Color Palette Refinement',76,458);
+      ctx.fillStyle='#888';
+      ctx.font='11px BerkeleyMono, monospace';
+      ctx.fillText('A TIME TESTED REFINEMENT FOR YOUR PALETTE',76,480);
+      wadaChips.forEach(function(c,i){
+        var x=60+i*(chipW+12);
+        ctx.fillStyle=c.hex; ctx.fillRect(x,530,chipW,24);
+        ctx.fillStyle='#888';
+        ctx.font='11px BerkeleyMono, monospace';
+        ctx.fillText(c.name+'  '+c.hex,x,570);
+      });
+    }
+
+    ctx.fillStyle='#2a2a2a'; ctx.fillRect(0,H-48,W,1);
+    ctx.fillStyle='#444';
+    ctx.font='11px BerkeleyMono, monospace';
+    ctx.textAlign='left';
+    ctx.fillText('LOSQ STUDIOS  ·  WADA COLOR INTELLIGENCE  ·  2026',60,H-18);
+    ctx.textAlign='right';
+    ctx.fillText('losqstudios.com',W-60,H-18);
+
+    var link=document.createElement('a');
+    link.download=paletteName.replace(/[^a-z0-9]/gi,'-').toLowerCase()+'-palette.png';
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+  });
+}
+
+// ── Copy exports ─────────────────────────────────────────────
+function exportHex() { navigator.clipboard.writeText(slots.map(function(s){ return s.hex; }).join('  ')); flashBtn('btn-hex','COPIED ✓'); }
+function exportCss() { navigator.clipboard.writeText(':root {\n'+slots.map(function(s,i){ return '  --color-'+(i+1)+': '+s.hex+'; /* '+s.name+' */'; }).join('\n')+'\n}'); flashBtn('btn-css','COPIED ✓'); }
+function flashBtn(id,t) { var b=document.getElementById(id); var o=b.textContent; b.textContent=t; b.classList.add('copied'); setTimeout(function(){ b.textContent=o; b.classList.remove('copied'); },1800); }
+
+// ── Height reporting ─────────────────────────────────────────
+function sendHeight() { var h=document.documentElement.scrollHeight; window.parent.postMessage({type:'resize',height:h},'*'); }
+window.addEventListener('load',sendHeight);
+setInterval(sendHeight,1000);
+
+init();
+</script>
+</body>
+</html>
